@@ -32,17 +32,18 @@ const hero = design.layout.hero_section;
         >
           <Button
             href={hero.buttons[0].link}
-            style={hero.buttons[0].style as any}
+            style="solid-green-large"
+            class="w-full sm:w-auto"
           >
             {hero.buttons[0].text}
           </Button>
-          <Button href={hero.buttons[1].link} style="outline">
+          <Button href={hero.buttons[1].link} style="outline-large" class="w-full sm:w-auto">
             {hero.buttons[1].text}
           </Button>
         </div>
 
         <div
-          class="grid grid-cols-3 gap-6 pt-8 border-t border-gray-200 animate-fade-in-up"
+          class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 border-t border-gray-200 animate-fade-in-up"
           style="animation-delay: 300ms;"
         >
           {
