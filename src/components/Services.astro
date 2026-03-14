@@ -1,0 +1,90 @@
+---
+import Section from './Section.astro';
+import Tag from './Tag.astro';
+import Button from './Button.astro';
+
+const services = [
+  {
+    title: "Jardim Vertical Natural",
+    description: "Nossa especialidade. Projeto, execução e acompanhamento de jardins verticais com plantas 100% naturais e técnica de manta enraizadora.",
+    image: "https://images.unsplash.com/photo-1598460655827-0c2d3a77d1cf?q=80&w=800&auto=format&fit=crop",
+    highlighted: true
+  },
+  {
+    title: "Consultoria e Projetos",
+    description: "Desenvolvemos projetos paisagísticos personalizados para arquitetos, designers, construtoras e clientes finais.",
+    image: "https://images.unsplash.com/photo-1584725906806-a669ff81fcee?q=80&w=800&auto=format&fit=crop"
+  },
+  {
+    title: "Execução de Jardins",
+    description: "Do pequeno jardim residencial ao grande projeto comercial, executamos com cuidado e precisão.",
+    image: "https://images.unsplash.com/photo-1558904541-efa843a96f1d?q=80&w=800&auto=format&fit=crop"
+  },
+  {
+    title: "Manutenção de Jardins",
+    description: "Mantenha seu jardim sempre bonito e saudável com nosso serviço periódico de manutenção especializada.",
+    image: "https://images.unsplash.com/photo-1416879590825-9f5b2b2b10ab?q=80&w=800&auto=format&fit=crop"
+  },
+  {
+    title: "Plantas para Interior",
+    description: "Selecionamos e fornecemos as melhores espécies para interiores, combinando estética e adaptabilidade ao ambiente.",
+    image: "https://images.unsplash.com/photo-1545241047-6083a36a0d1d?q=80&w=800&auto=format&fit=crop"
+  },
+  {
+    title: "Cursos e Workshops",
+    description: "Aprenda técnicas de paisagismo, montagem de jardins verticais e cuidados com plantas em nossos cursos presenciais.",
+    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800&auto=format&fit=crop"
+  },
+  {
+    title: "Empório Garden",
+    description: "Nossa loja em Porto Alegre oferece plantas, substratos, vasos e acessórios selecionados para você cuidar do seu verde.",
+    image: "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?q=80&w=800&auto=format&fit=crop"
+  },
+  {
+    title: "Eventos e Exposições",
+    description: "Criamos instalações verdes para eventos corporativos, casamentos, feiras e exposições — natureza em qualquer cenário.",
+    image: "https://images.unsplash.com/photo-1510265236756-11da9261eb8a?q=80&w=800&auto=format&fit=crop"
+  }
+];
+---
+
+<Section id="servicos" class="bg-bg-light">
+  <div class="text-center mb-16 max-w-3xl mx-auto">
+    <Tag class="mb-4">NOSSOS SERVIÇOS</Tag>
+    <h2 class="text-3xl md:text-4xl font-bold text-text-dark mb-6">
+      Soluções Verdes Para Cada Espaço e Necessidade
+    </h2>
+    <p class="text-text-light text-lg mb-8">
+      Além dos jardins verticais, oferecemos uma gama completa de serviços para transformar e cuidar dos seus espaços verdes com excelência e carinho.
+    </p>
+    <Button href="#contato" style="primary">VER TODOS OS SERVIÇOS</Button>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    {services.map((service) => (
+      <div class={`group rounded-xl overflow-hidden bg-white shadow-sm hover:shadow-xl transition-all duration-300 ${service.highlighted ? 'border-2 border-primary/20' : ''}`}>
+        <div class="relative h-48 overflow-hidden">
+          <img 
+            src={service.image} 
+            alt={service.title} 
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            loading="lazy"
+          />
+          {service.highlighted && (
+            <div class="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">
+              Destaque
+            </div>
+          )}
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-text-dark mb-3 group-hover:text-primary transition-colors">
+            {service.title}
+          </h3>
+          <p class="text-text-light text-sm leading-relaxed">
+            {service.description}
+          </p>
+        </div>
+      </div>
+    ))}
+  </div>
+</Section>

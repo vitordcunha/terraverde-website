@@ -1,0 +1,43 @@
+---
+import Section from './Section.astro';
+import Button from './Button.astro';
+---
+
+<Section class="bg-primary text-white text-center rounded-3xl my-24 py-20 px-6 max-w-6xl mx-auto shadow-2xl relative overflow-hidden" padding="none">
+  <!-- Dynamic background shapes -->
+  <div class="absolute -top-32 -left-32 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+  <div class="absolute -bottom-32 -right-32 w-80 h-80 bg-accent/20 rounded-full blur-3xl"></div>
+
+  <div class="relative z-10 max-w-3xl mx-auto">
+    <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+      Pronto para Trazer a Natureza para o Seu Espaço?
+    </h2>
+    <p class="text-xl md:text-2xl text-white/90 mb-10">
+      Entre em contato agora pelo WhatsApp e receba um orçamento personalizado, sem compromisso.
+    </p>
+
+    <div class="flex flex-col items-center gap-6">
+      <Button 
+        href="https://wa.me/message/UFIXHURQVOMGD1" 
+        style="solid-green-large"
+        class="bg-white text-primary hover:bg-bg-light shadow-xl text-lg px-10 py-5 w-full sm:w-auto transform hover:-translate-y-1 transition-transform"
+        target="_blank"
+      >
+        <span class="flex items-center gap-3 justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          FALAR COM A CARMEN NO WHATSAPP
+        </span>
+      </Button>
+      
+      <p class="text-white/80 mt-4 flex items-center justify-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 15 4 10a8 8 0 0 1 16 0"/>
+          <circle cx="12" cy="10" r="3"/>
+        </svg>
+        Ou venha visitar nosso showroom: Rua Juncal, nº 40 - Jardim Europa, Porto Alegre/RS
+      </p>
+    </div>
+  </div>
+</Section>

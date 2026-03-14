@@ -1,0 +1,73 @@
+---
+import design from '../../design.json';
+import Section from './Section.astro';
+import Tag from './Tag.astro';
+import Icon from './Icon.astro';
+import Button from './Button.astro';
+
+const data = design.layout.main_service_section;
+---
+
+<Section id="jardim-vertical" padding="large">
+  <div class="mb-16 md:mb-24 text-center max-w-3xl mx-auto">
+    <Tag class="mb-6">{data.tag}</Tag>
+    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-text-dark">{data.title}</h2>
+    <p class="text-lg text-text-light leading-relaxed">
+      {data.description}
+    </p>
+  </div>
+
+  <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 mb-24">
+    <!-- Image/Video Area Placeholder for the steps or generic -->
+    <div class="relative">
+      <div class="bg-gray-100 rounded-3xl aspect-[4/3] w-full object-cover shadow-xl overflow-hidden relative">
+          <!-- Placeholder image since we lack the specific one in phase 1. Usually, here is an image representing the technique -->
+          <div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/20 flex flex-col justify-center items-center text-center p-8">
+             <Icon name="check" class="w-16 h-16 text-primary opacity-50 mb-4" />
+             <h3 class="text-2xl font-bold text-primary mb-2">Técnica Exclusiva</h3>
+             <p class="text-text-dark/70">Manta Enraizadora</p>
+          </div>
+      </div>
+      
+      <!-- Steps overlay -->
+      <div class="-mt-12 lg:absolute lg:top-1/2 lg:-translate-y-1/2 lg:-right-12 lg:mt-0 bg-white p-8 rounded-2xl shadow-xl w-full lg:w-80">
+        <h3 class="text-xl font-bold mb-6 text-text-dark">{data.technique_explanation.title}</h3>
+        <div class="flex flex-col gap-5">
+          {data.technique_explanation.steps.map((step) => (
+            <div class="flex gap-4">
+              <div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-sm">
+                {step.step}
+              </div>
+              <p class="text-sm font-medium text-text-dark/80 pt-1 leading-snug">
+                {step.text}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Benefits -->
+    <div class="flex flex-col justify-center">
+      <div class="grid sm:grid-cols-2 gap-8 lg:gap-10">
+        {data.benefits.map((benefit) => (
+          <div class="group">
+            <div class="mb-4 w-12 h-12 rounded-xl bg-accent/10 text-primary flex items-center justify-center group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm">
+              <Icon name={benefit.icon} class="w-6 h-6" />
+            </div>
+            <h4 class="text-xl font-bold mb-2 text-text-dark group-hover:text-primary transition-colors">{benefit.title}</h4>
+            <p class="text-text-light text-sm leading-relaxed">
+              {benefit.description}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-12 pt-10 border-t border-gray-100">
+        <Button href={data.cta.link} style="solid-green-large" class="w-full sm:w-auto">
+          {data.cta.text}
+        </Button>
+      </div>
+    </div>
+  </div>
+</Section>

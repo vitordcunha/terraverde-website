@@ -1,0 +1,313 @@
+{
+  "site_name": "Terra Verde & Co",
+  "theme": {
+    "primary_color": "#2d6a4f",
+    "secondary_color": "#ffffff",
+    "accent_color": "#52b788",
+    "background_light": "#f8f9f5",
+    "text_color_dark": "#1a1a1a",
+    "text_color_light": "#666666",
+    "font_family": "Sans-serif"
+  },
+  "layout": {
+    "header": {
+      "logo": "Terra Verde & Co",
+      "navigation": [
+        { "label": "Início", "link": "#inicio" },
+        { "label": "Jardim Vertical", "link": "#jardim-vertical" },
+        { "label": "Serviços", "link": "#servicos" },
+        { "label": "Portfólio", "link": "#portfolio" },
+        { "label": "Sobre nós", "link": "#sobre" },
+        { "label": "Contato", "link": "#contato" }
+      ],
+      "contact_info": {
+        "address": "Rua Juncal, nº 40 - Jardim Europa, Porto Alegre/RS",
+        "instagram": "@terraverde.co",
+        "phone": "51 99833-5980"
+      },
+      "cta_button": "SOLICITAR ORÇAMENTO"
+    },
+    "hero_section": {
+      "headline": "Natureza Viva nas Suas Paredes",
+      "subheadline": "Jardins verticais 100% naturais que transformam qualquer ambiente em um espaço vivo, saudável e único. Atendemos residências, empresas, arquitetos e construtoras em Porto Alegre.",
+      "buttons": [
+        {
+          "text": "SOLICITAR ORÇAMENTO",
+          "style": "solid-green",
+          "link": "https://wa.me/message/UFIXHURQVOMGD1"
+        },
+        {
+          "text": "VER PROJETOS",
+          "style": "outline-white",
+          "link": "#portfolio"
+        }
+      ],
+      "stats": [
+        { "value": "10+", "label": "Anos de experiência" },
+        { "value": "200+", "label": "Projetos realizados" },
+        { "value": "100%", "label": "Plantas naturais" }
+      ],
+      "image_slider": "Jardim vertical natural exuberante em parede interna"
+    },
+    "credibility_bar": {
+      "items": [
+        { "icon": "leaf", "text": "Especialistas em manta enraizadora" },
+        { "icon": "home", "text": "Residencial, comercial e corporativo" },
+        { "icon": "award", "text": "Atende arquitetos e construtoras" },
+        { "icon": "map-pin", "text": "Showroom em Porto Alegre" }
+      ]
+    },
+    "about_features": {
+      "featured_image": "Carmen Dornelles trabalhando em jardim vertical",
+      "feature_list": [
+        {
+          "title": "100% Natural, Sempre",
+          "description": "Trabalhamos exclusivamente com plantas naturais — sem artificiais, sem compromisso com a natureza.",
+          "icon": "leaf-icon"
+        },
+        {
+          "title": "Técnica Exclusiva de Manta Enraizadora",
+          "description": "Sistema inovador que garante jardins verticais duráveis e de baixa manutenção.",
+          "icon": "layers-icon"
+        },
+        {
+          "title": "Atendimento Personalizado",
+          "description": "Cada projeto é único. Do residencial ao corporativo, criamos soluções sob medida.",
+          "icon": "user-check-icon"
+        }
+      ],
+      "about_text": {
+        "tag": "SOBRE NÓS",
+        "title": "Criando Espaços Verdes que Aproximam Pessoas da Natureza",
+        "description": "A Terra Verde & Co nasceu da paixão de Carmen Dornelles — paisagista que largou a pedagogia para transformar ambientes com verde vivo. Hoje somos referência em jardins verticais naturais em Porto Alegre, com um showroom garden e atendimento personalizado para cada cliente.",
+        "button": "CONHEÇA A NOSSA HISTÓRIA"
+      }
+    },
+    "main_service_section": {
+      "tag": "JARDIM VERTICAL",
+      "title": "A Parede Mais Bonita do Seu Espaço",
+      "description": "Um jardim vertical natural é mais do que decoração — é vida, é saúde, é bem-estar. Utilizamos o sistema de manta enraizadora, que permite que as plantas cresçam de forma saudável e duradoura diretamente na parede, sem vasos aparentes.",
+      "benefits": [
+        {
+          "icon": "wind",
+          "title": "Purifica o ar",
+          "description": "Plantas naturais filtram toxinas e aumentam o oxigênio no ambiente."
+        },
+        {
+          "icon": "thermometer",
+          "title": "Controla a temperatura",
+          "description": "O verde vivo regula a umidade e ameniza o calor."
+        },
+        {
+          "icon": "trending-up",
+          "title": "Valoriza o imóvel",
+          "description": "Projetos bem executados agregam valor estético e financeiro."
+        },
+        {
+          "icon": "heart",
+          "title": "Bem-estar comprovado",
+          "description": "Ambientes com plantas reduzem stress e aumentam a produtividade."
+        }
+      ],
+      "technique_explanation": {
+        "title": "Como funciona a manta enraizadora?",
+        "description": "A manta enraizadora é um substrato especial que retém umidade e nutrientes, permitindo que as raízes das plantas se fixem diretamente na parede. O resultado é um jardim vivo, saudável e com aparência impecável.",
+        "steps": [
+          { "step": 1, "text": "Instalação da estrutura de suporte na parede" },
+          {
+            "step": 2,
+            "text": "Aplicação da manta enraizadora com substrato nutritivo"
+          },
+          {
+            "step": 3,
+            "text": "Plantio das espécies selecionadas para o ambiente"
+          },
+          {
+            "step": 4,
+            "text": "Sistema de irrigação automática (quando necessário)"
+          }
+        ]
+      },
+      "cta": {
+        "text": "QUERO UM JARDIM VERTICAL",
+        "link": "https://wa.me/message/UFIXHURQVOMGD1"
+      }
+    },
+    "services_section": {
+      "header": {
+        "tag": "NOSSOS SERVIÇOS",
+        "title": "Soluções Verdes Para Cada Espaço e Necessidade",
+        "description": "Além dos jardins verticais, oferecemos uma gama completa de serviços para transformar e cuidar dos seus espaços verdes com excelência e carinho.",
+        "button": "VER TODOS OS SERVIÇOS"
+      },
+      "service_cards": [
+        {
+          "title": "Jardim Vertical Natural",
+          "description": "Nossa especialidade. Projeto, execução e acompanhamento de jardins verticais com plantas 100% naturais e técnica de manta enraizadora.",
+          "image": "Jardim vertical natural em parede de sala de estar",
+          "highlighted": true
+        },
+        {
+          "title": "Consultoria e Projetos",
+          "description": "Desenvolvemos projetos paisagísticos personalizados para arquitetos, designers, construtoras e clientes finais.",
+          "image": "Paisagista desenvolvendo projeto em mesa"
+        },
+        {
+          "title": "Execução de Jardins",
+          "description": "Do pequeno jardim residencial ao grande projeto comercial, executamos com cuidado e precisão.",
+          "image": "Equipe executando jardim externo"
+        },
+        {
+          "title": "Manutenção de Jardins",
+          "description": "Mantenha seu jardim sempre bonito e saudável com nosso serviço periódico de manutenção especializada.",
+          "image": "Profissional realizando manutenção de jardim vertical"
+        },
+        {
+          "title": "Plantas para Interior",
+          "description": "Selecionamos e fornecemos as melhores espécies para interiores, combinando estética e adaptabilidade ao ambiente.",
+          "image": "Vasos com plantas tropicais em ambiente interno"
+        },
+        {
+          "title": "Cursos e Workshops",
+          "description": "Aprenda técnicas de paisagismo, montagem de jardins verticais e cuidados com plantas em nossos cursos presenciais.",
+          "image": "Grupo de pessoas em workshop de jardim"
+        },
+        {
+          "title": "Empório Garden",
+          "description": "Nossa loja em Porto Alegre oferece plantas, substratos, vasos e acessórios selecionados para você cuidar do seu verde.",
+          "image": "Interior de loja garden com plantas e acessórios"
+        },
+        {
+          "title": "Eventos e Exposições",
+          "description": "Criamos instalações verdes para eventos corporativos, casamentos, feiras e exposições — natureza em qualquer cenário.",
+          "image": "Instalação verde decorativa em evento corporativo"
+        }
+      ]
+    },
+    "portfolio_section": {
+      "tag": "PORTFÓLIO",
+      "title": "Projetos que Falam por Si",
+      "description": "Cada jardim conta uma história. Veja alguns dos nossos projetos realizados em residências, empresas e espaços comerciais em Porto Alegre e região.",
+      "filters": [
+        { "label": "Todos", "value": "all" },
+        { "label": "Residencial", "value": "residencial" },
+        { "label": "Comercial", "value": "comercial" },
+        { "label": "Corporativo", "value": "corporativo" },
+        { "label": "Externo", "value": "externo" }
+      ],
+      "cta": {
+        "text": "QUERO UM PROJETO ASSIM",
+        "link": "https://wa.me/message/UFIXHURQVOMGD1"
+      }
+    },
+    "how_it_works_section": {
+      "tag": "COMO FUNCIONA",
+      "title": "Do Primeiro Contato ao Jardim Pronto",
+      "description": "Um processo simples, transparente e totalmente personalizado para você.",
+      "steps": [
+        {
+          "step": "01",
+          "title": "Fale comigo no WhatsApp",
+          "description": "Me conte sobre o seu espaço e o que você está imaginando. Sem compromisso, sem burocracia."
+        },
+        {
+          "step": "02",
+          "title": "Visita e projeto personalizado",
+          "description": "Vou até você, avalio o espaço e apresento um projeto com as melhores espécies e soluções para o ambiente."
+        },
+        {
+          "step": "03",
+          "title": "Execução com plantas naturais",
+          "description": "Nossa equipe realiza a instalação com cuidado e precisão, utilizando apenas plantas e materiais de qualidade."
+        },
+        {
+          "step": "04",
+          "title": "Acompanhamento e manutenção",
+          "description": "Você não fica sozinho depois. Oferecemos orientação e serviço de manutenção para seu jardim durar muito."
+        }
+      ]
+    },
+    "testimonials_section": {
+      "tag": "DEPOIMENTOS",
+      "title": "O Que Nossos Clientes Dizem",
+      "description": "Nada melhor do que a experiência de quem já transformou seu espaço com a Terra Verde.",
+      "testimonial_cards": [
+        {
+          "name": "Ana Paula M.",
+          "type": "Cliente residencial",
+          "text": "A Carmen transformou a parede da minha sala em algo que nunca imaginei que seria possível. O jardim vertical ficou simplesmente incrível — parece que o apartamento ganhou vida.",
+          "rating": 5
+        },
+        {
+          "name": "Arq. Rodrigo S.",
+          "type": "Arquiteto parceiro",
+          "text": "Indico a Terra Verde para todos os meus clientes que querem jardim vertical. Técnica impecável, prazo cumprido e as plantas são sempre lindas e saudáveis.",
+          "rating": 5
+        },
+        {
+          "name": "Restaurante Verdi",
+          "type": "Cliente comercial",
+          "text": "Contratamos a Carmen para o jardim vertical do nosso restaurante e virou o ponto mais fotografado do espaço. Os clientes amam e o ambiente ficou muito mais aconchegante.",
+          "rating": 5
+        }
+      ]
+    },
+    "about_section": {
+      "tag": "QUEM SOMOS",
+      "title": "Uma Paisagista Apaixonada por Transformar Espaços",
+      "founder": {
+        "name": "Carmen Dornelles",
+        "role": "Paisagista e fundadora",
+        "photo": "Carmen Dornelles em frente a jardim vertical",
+        "story": "Formada em Pedagogia, Carmen sempre teve o coração partido entre a sala de aula e o verde. Aos 30 anos, decidiu seguir sua paixão e fundou a Terra Verde & Co — que começou como uma pequena empresa de jardins e cresceu até se tornar referência em jardins verticais naturais em Porto Alegre.",
+        "mission": "Nossa missão é aproximar as pessoas da natureza, um jardim de cada vez."
+      },
+      "instagram_cta": {
+        "text": "Acompanhe nossos projetos no Instagram",
+        "handle": "@terraverde.co",
+        "link": "https://instagram.com/terraverde.co"
+      }
+    },
+    "final_cta_section": {
+      "headline": "Pronto para Trazer a Natureza para o Seu Espaço?",
+      "subheadline": "Entre em contato agora pelo WhatsApp e receba um orçamento personalizado, sem compromisso.",
+      "cta_button": {
+        "text": "FALAR COM A CARMEN NO WHATSAPP",
+        "style": "solid-green-large",
+        "link": "https://wa.me/message/UFIXHURQVOMGD1"
+      },
+      "secondary_info": "Ou venha visitar nosso showroom: Rua Juncal, nº 40 - Jardim Europa, Porto Alegre/RS"
+    },
+    "footer": {
+      "logo": "Terra Verde & Co",
+      "tagline": "Natureza viva para espaços únicos.",
+      "address": "Rua Juncal, nº 40 - Jardim Europa, Porto Alegre/RS",
+      "phone": "51 99833-5980",
+      "social_links": [
+        {
+          "platform": "Instagram",
+          "handle": "@terraverde.co",
+          "link": "https://instagram.com/terraverde.co"
+        },
+        {
+          "platform": "Facebook",
+          "handle": "terraverde.co",
+          "link": "https://www.facebook.com/terraverde.co"
+        },
+        {
+          "platform": "WhatsApp",
+          "link": "https://wa.me/message/UFIXHURQVOMGD1"
+        }
+      ],
+      "navigation_links": [
+        { "label": "Início", "link": "#inicio" },
+        { "label": "Jardim Vertical", "link": "#jardim-vertical" },
+        { "label": "Serviços", "link": "#servicos" },
+        { "label": "Portfólio", "link": "#portfolio" },
+        { "label": "Sobre nós", "link": "#sobre" },
+        { "label": "Contato", "link": "#contato" }
+      ],
+      "copyright": "© 2025 Terra Verde & Co. Todos os direitos reservados."
+    }
+  }
+}

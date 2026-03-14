@@ -1,0 +1,58 @@
+---
+import Section from './Section.astro';
+import Tag from './Tag.astro';
+import Button from './Button.astro';
+---
+
+<Section id="sobre" class="bg-white">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <div class="order-2 lg:order-1 relative">
+      <div class="relative rounded-2xl overflow-hidden aspect-[3/4] md:aspect-square lg:aspect-[3/4] shadow-2xl">
+        <img 
+          src="https://images.unsplash.com/photo-1594498653385-d5172c532c00?q=80&w=800&auto=format&fit=crop" 
+          alt="Carmen Dornelles em frente a jardim vertical" 
+          class="w-full h-full object-cover"
+          loading="lazy"
+        />
+        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-6 md:p-8">
+          <p class="text-white font-bold text-xl md:text-2xl">Carmen Dornelles</p>
+          <p class="text-white/80">Paisagista e fundadora</p>
+        </div>
+      </div>
+      <!-- Decorative element -->
+      <div class="absolute -right-6 -bottom-6 w-48 h-48 bg-bg-light rounded-full -z-10 hidden md:block"></div>
+      <div class="absolute -left-6 -top-6 w-32 h-32 bg-primary/10 rounded-full -z-10 hidden md:block"></div>
+    </div>
+
+    <div class="order-1 lg:order-2">
+      <Tag class="mb-4">QUEM SOMOS</Tag>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-text-dark mb-6 leading-tight">
+        Uma Paisagista Apaixonada por Transformar Espaços
+      </h2>
+      
+      <div class="prose prose-lg text-text-light mb-8 space-y-4">
+        <p>
+          Formada em Pedagogia, Carmen sempre teve o coração partido entre a sala de aula e o verde. Aos 30 anos, decidiu seguir sua paixão e fundou a Terra Verde & Co — que começou como uma pequena empresa de jardins e cresceu até se tornar referência em jardins verticais naturais em Porto Alegre.
+        </p>
+      </div>
+
+      <div class="bg-bg-light p-6 rounded-xl border-l-4 border-primary mb-8">
+        <p class="text-xl font-medium text-text-dark italic">
+          "Nossa missão é aproximar as pessoas da natureza, um jardim de cada vez."
+        </p>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+        <a href="https://instagram.com/terraverde.co" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-3 bg-white border border-primary text-primary px-6 py-3 rounded-md hover:bg-primary hover:text-white transition-all duration-300 font-medium">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+          @terraverde.co
+        </a>
+        <span class="text-sm text-text-light">Acompanhe nossos projetos no Instagram</span>
+      </div>
+    </div>
+  </div>
+</Section>
