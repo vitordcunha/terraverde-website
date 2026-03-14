@@ -86,13 +86,13 @@ Semana de refinamento e lançamento. Nada de features novas — foco total em pe
 ### Tarefas
 
 - [ ] Revisão geral de textos com a Carmen
-- [ ] Otimização de imagens (WebP + compressão)
-- [ ] SEO: `title`, `description`, hierarquia de headings
-- [ ] SEO local: schema.org `LocalBusiness`
+- [x] Otimização de imagens (WebP + compressão)
+- [x] SEO: `title`, `description`, hierarquia de headings
+- [x] SEO local: schema.org `LocalBusiness`
 - [ ] Teste no PageSpeed Insights (meta: 90+)
 - [ ] Configurar domínio `terraverde.com.br`
-- [ ] Deploy na Vercel ou Netlify com HTTPS
-- [ ] Configurar Google Analytics + Search Console
+- [x] Deploy na Vercel ou Netlify com HTTPS
+- [x] Configurar Google Analytics + Search Console
 
 ### ✓ Entregável
 Site no ar, rápido, indexável e com rastreamento ativo.
