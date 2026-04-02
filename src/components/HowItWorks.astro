@@ -1,60 +1,86 @@
 ---
-import Section from './Section.astro';
 import Tag from './Tag.astro';
 
 const steps = [
   {
     step: "01",
     title: "Fale comigo no WhatsApp",
-    description: "Me conte sobre o seu espaço e o que você está imaginando. Sem compromisso, sem burocracia."
+    description: "Me conte sobre o seu espaço e o que você está imaginando. Sem compromisso, sem burocracia.",
+    icon: "💬"
   },
   {
     step: "02",
     title: "Visita e projeto personalizado",
-    description: "Vou até você, avalio o espaço e apresento um projeto com as melhores espécies e soluções para o ambiente."
+    description: "Vou até você, avalio o espaço e apresento um projeto com as melhores espécies para o ambiente.",
+    icon: "📐"
   },
   {
     step: "03",
     title: "Execução com plantas naturais",
-    description: "Nossa equipe realiza a instalação com cuidado e precisão, utilizando apenas plantas e materiais de qualidade."
+    description: "Nossa equipe realiza a instalação com cuidado, utilizando apenas plantas e materiais de qualidade.",
+    icon: "🌿"
   },
   {
     step: "04",
     title: "Acompanhamento e manutenção",
-    description: "Você não fica sozinho depois. Oferecemos orientação e serviço de manutenção para seu jardim durar muito."
+    description: "Você não fica sozinho depois. Oferecemos orientação e manutenção para seu jardim durar muito.",
+    icon: "🔄"
   }
 ];
 ---
 
-<Section id="como-funciona" class="bg-bg-light overflow-hidden">
-  <div class="text-center mb-16 max-w-3xl mx-auto">
-    <Tag class="mb-4">COMO FUNCIONA</Tag>
-    <h2 class="text-3xl md:text-4xl font-bold text-text-dark mb-6">
-      Do Primeiro Contato ao Jardim Pronto
-    </h2>
-    <p class="text-text-light text-lg">
-      Um processo simples, transparente e totalmente personalizado para você.
-    </p>
-  </div>
+<section id="como-funciona" class="bg-bg-section py-20 lg:py-28 reveal overflow-hidden">
+  <div class="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
+    <div class="text-center mb-16 max-w-2xl mx-auto">
+      <Tag class="mb-4">COMO FUNCIONA</Tag>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-text-dark mb-5 font-serif leading-tight">
+        Do Primeiro Contato ao Jardim Pronto
+      </h2>
+      <p class="text-text-light text-base leading-relaxed">
+        Um processo simples, transparente e totalmente personalizado para você.
+      </p>
+    </div>
 
-  <div class="relative max-w-5xl mx-auto">
-    <!-- Desktop connecting line -->
-    <div class="hidden md:block absolute top-[40px] left-[12%] w-[76%] h-0.5 bg-primary/20 z-0"></div>
+    <div class="relative max-w-5xl mx-auto">
+      <!-- Connecting line (desktop) -->
+      <div class="hidden md:block absolute top-10 left-[12.5%] right-[12.5%] h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent z-0"></div>
 
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-6 relative z-10">
-      {steps.map((step, index) => (
-        <div class="flex flex-col items-center text-center group">
-          <div class="w-20 h-20 rounded-full bg-white border-4 border-primary text-primary flex items-center justify-center text-2xl font-bold mb-6 shadow-lg group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300">
-            {step.step}
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-6 relative z-10">
+        {steps.map((step, index) => (
+          <div class="flex flex-col items-center text-center group">
+            <!-- Step number circle -->
+            <div class="relative w-20 h-20 mb-6">
+              <div class="absolute inset-0 rounded-full bg-white shadow-lg border-2 border-primary/20 group-hover:border-primary group-hover:shadow-primary/20 group-hover:shadow-xl transition-all duration-300"></div>
+              <div class="absolute inset-0 flex flex-col items-center justify-center">
+                <span class="text-xl mb-0.5">{step.icon}</span>
+                <span class="text-[10px] font-bold text-primary/40 leading-none">{step.step}</span>
+              </div>
+              <!-- Active glow on hover -->
+              <div class="absolute -inset-2 rounded-full bg-primary/5 scale-0 group-hover:scale-100 transition-transform duration-300 -z-10"></div>
+            </div>
+
+            <h3 class="text-base font-bold text-text-dark mb-2 group-hover:text-primary transition-colors">
+              {step.title}
+            </h3>
+            <p class="text-text-light text-sm leading-relaxed">
+              {step.description}
+            </p>
           </div>
-          <h3 class="text-xl font-bold text-text-dark mb-3">
-            {step.title}
-          </h3>
-          <p class="text-text-light leading-relaxed">
-            {step.description}
-          </p>
-        </div>
-      ))}
+        ))}
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-16 text-center">
+      <a
+        href="https://wa.me/message/UFIXHURQVOMGD1"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-full font-semibold hover:bg-primary-dark transition-all duration-300 shadow-lg shadow-primary/25 hover:-translate-y-0.5"
+      >
+        COMEÇAR AGORA — É DE GRAÇA
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
     </div>
   </div>
-</Section>
+</section>

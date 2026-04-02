@@ -17,6 +17,7 @@
         { "label": "Jardim Vertical", "link": "#jardim-vertical" },
         { "label": "Serviços", "link": "#servicos" },
         { "label": "Portfólio", "link": "#portfolio" },
+        { "label": "Clientes", "link": "#clientes" },
         { "label": "Sobre nós", "link": "#sobre" },
         { "label": "Contato", "link": "#contato" }
       ],
@@ -55,6 +56,21 @@
         { "icon": "home", "text": "Residencial, comercial e corporativo" },
         { "icon": "award", "text": "Atende arquitetos e construtoras" },
         { "icon": "map-pin", "text": "Showroom em Porto Alegre" }
+      ]
+    },
+    "clients_carousel": {
+      "label": "Clientes e parceiros que confiam na Terra Verde",
+      "clients": [
+        { "name": "Restaurante Verdi",     "initials": "RV", "logo": "/images/clients/restaurante-verdi.png" },
+        { "name": "Arq. Rodrigo Salgado",  "initials": "RS", "logo": "/images/clients/arq-rodrigo.png" },
+        { "name": "Construtora Habitat",   "initials": "CH", "logo": "/images/clients/construtora-habitat.png" },
+        { "name": "Studio Ana Paula",      "initials": "SA", "logo": "/images/clients/studio-ana-paula.png" },
+        { "name": "Clínica Equilíbrio",    "initials": "CE", "logo": "/images/clients/clinica-equilibrio.png" },
+        { "name": "Hotel Veredas",          "initials": "HV", "logo": "/images/clients/hotel-veredas.png" },
+        { "name": "Espaço Bem Viver",       "initials": "BV", "logo": "/images/clients/espaco-bem-viver.png" },
+        { "name": "Arq. Marina Costa",     "initials": "MC", "logo": "/images/clients/arq-marina.png" },
+        { "name": "Evento Casar",           "initials": "EC", "logo": "/images/clients/evento-casar.png" },
+        { "name": "OAB Porto Alegre",       "initials": "OA", "logo": "/images/clients/oab-poa.png" }
       ]
     },
     "about_features": {

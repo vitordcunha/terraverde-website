@@ -1,94 +1,94 @@
 ---
-import Section from "./Section.astro";
 import Tag from "./Tag.astro";
-import Button from "./Button.astro";
 ---
 
-<Section id="sobre" class="bg-white">
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-    <div class="order-2 lg:order-1 relative">
-      <div
-        class="relative rounded-2xl overflow-hidden aspect-[3/4] md:aspect-square lg:aspect-[3/4] shadow-2xl"
-      >
-        <img
-          src="/images/carmen.png"
-          alt="Carmen Dornelles em frente a jardim vertical"
-          class="w-full h-full object-cover"
-          loading="lazy"
-        />
-        <div
-          class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent p-6 md:p-8"
-        >
-          <p class="text-white font-bold text-xl md:text-2xl">
-            Carmen Dornelles
-          </p>
-          <p class="text-white/80">Paisagista e fundadora</p>
+<section id="sobre" class="bg-white py-20 lg:py-28 reveal">
+  <div class="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <!-- Image side -->
+      <div class="order-2 lg:order-1 relative">
+        <div class="relative rounded-t-[80px] rounded-br-[80px] rounded-bl-[20px] overflow-hidden aspect-[4/5] shadow-2xl">
+          <img
+            src="/images/carmen.png"
+            alt="Carmen Dornelles em frente a jardim vertical"
+            class="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-700"
+            loading="lazy"
+          />
+          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-6 md:p-8">
+            <p class="text-white font-bold text-xl md:text-2xl font-serif">Carmen Dornelles</p>
+            <p class="text-white/75 text-sm">Paisagista e fundadora</p>
+          </div>
         </div>
-      </div>
-      <!-- Decorative element -->
-      <div
-        class="absolute -right-6 -bottom-6 w-48 h-48 bg-bg-light rounded-full -z-10 hidden md:block"
-      >
-      </div>
-      <div
-        class="absolute -left-6 -top-6 w-32 h-32 bg-primary/10 rounded-full -z-10 hidden md:block"
-      >
-      </div>
-    </div>
 
-    <div class="order-1 lg:order-2">
-      <Tag class="mb-4">QUEM SOMOS</Tag>
-      <h2
-        class="text-3xl md:text-4xl lg:text-5xl font-bold text-text-dark mb-6 leading-tight"
-      >
-        Uma Paisagista Apaixonada por Transformar Espaços
-      </h2>
+        <!-- Floating stats cards -->
+        <div class="absolute -right-4 md:-right-8 top-16 bg-white rounded-2xl shadow-xl p-4 border border-gray-50 w-36 hidden md:block">
+          <div class="text-2xl font-bold text-primary font-serif">10+</div>
+          <div class="text-xs text-text-light leading-tight mt-0.5">Anos de experiência</div>
+        </div>
+        <div class="absolute -left-4 md:-left-8 bottom-24 bg-primary rounded-2xl shadow-xl p-4 w-40 hidden md:block">
+          <div class="text-2xl font-bold text-white font-serif">200+</div>
+          <div class="text-xs text-white/70 leading-tight mt-0.5">Projetos realizados</div>
+        </div>
 
-      <div class="prose prose-lg text-text-light mb-8 space-y-4">
-        <p>
+        <!-- Decorative blobs -->
+        <div class="absolute -right-6 -bottom-6 w-48 h-48 bg-accent-light rounded-full -z-10 hidden md:block opacity-60"></div>
+        <div class="absolute -left-6 -top-6 w-32 h-32 bg-primary/8 rounded-full -z-10 hidden md:block"></div>
+      </div>
+
+      <!-- Content side -->
+      <div class="order-1 lg:order-2">
+        <Tag class="mb-4">QUEM SOMOS</Tag>
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-text-dark mb-6 leading-tight font-serif">
+          Uma Paisagista Apaixonada por Transformar Espaços
+        </h2>
+
+        <p class="text-text-light text-base leading-relaxed mb-8">
           Formada em Pedagogia, Carmen sempre teve o coração partido entre a
           sala de aula e o verde. Aos 30 anos, decidiu seguir sua paixão e
-          fundou a Terra Verde & Co — que começou como uma pequena empresa de
+          fundou a Terra Verde &amp; Co — que começou como uma pequena empresa de
           jardins e cresceu até se tornar referência em jardins verticais
           naturais em Porto Alegre.
         </p>
-      </div>
 
-      <div class="bg-bg-light p-6 rounded-xl border-l-4 border-primary mb-8">
-        <p class="text-xl font-medium text-text-dark italic">
-          "Nossa missão é aproximar as pessoas da natureza, um jardim de cada
-          vez."
-        </p>
-      </div>
+        <!-- Feature pills -->
+        <div class="space-y-3 mb-8">
+          {[
+            { icon: "🌿", title: "100% Natural, Sempre", desc: "Apenas plantas naturais — sem artificiais, sem compromisso." },
+            { icon: "🔬", title: "Técnica de Manta Enraizadora", desc: "Sistema inovador para jardins duráveis e de baixa manutenção." },
+            { icon: "🤝", title: "Atendimento Personalizado", desc: "Cada projeto é único, do residencial ao corporativo." },
+          ].map((f) => (
+            <div class="flex items-start gap-4 p-4 rounded-xl bg-bg-section hover:bg-accent-light/30 transition-colors group">
+              <span class="text-xl">{f.icon}</span>
+              <div>
+                <div class="font-semibold text-text-dark text-sm">{f.title}</div>
+                <div class="text-xs text-text-light mt-0.5">{f.desc}</div>
+              </div>
+            </div>
+          ))}
+        </div>
 
-      <div class="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+        <!-- Blockquote -->
+        <blockquote class="border-l-4 border-primary pl-5 py-1 mb-8">
+          <p class="text-lg font-medium text-text-dark italic font-serif">
+            "Nossa missão é aproximar as pessoas da natureza, um jardim de cada vez."
+          </p>
+        </blockquote>
+
+        <!-- Instagram link -->
         <a
           href="https://instagram.com/terraverde.co"
           target="_blank"
           rel="noopener noreferrer"
-          class="group flex items-center gap-3 bg-white border border-primary text-primary px-6 py-3 rounded-md hover:bg-primary hover:text-white transition-all duration-300 font-medium"
+          class="group inline-flex items-center gap-3 border-2 border-primary/30 text-primary px-6 py-3 rounded-full hover:border-primary hover:bg-primary hover:text-white transition-all duration-300 font-semibold text-sm"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
             <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
             <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
           </svg>
-          @terraverde.co
+          Siga @terraverde.co
         </a>
-        <span class="text-sm text-text-light"
-          >Acompanhe nossos projetos no Instagram</span
-        >
       </div>
     </div>
   </div>
-</Section>
+</section>

@@ -1,20 +1,140 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap');
 
 @theme {
   --color-primary: #2d6a4f;
+  --color-primary-dark: #1b4332;
+  --color-primary-light: #40916c;
   --color-secondary: #ffffff;
   --color-accent: #52b788;
-  --color-bg-light: #f8f9f5;
+  --color-accent-light: #d8f3dc;
+  --color-bg-light: #f8faf5;
+  --color-bg-section: #f2f7f0;
   --color-text-dark: #1a1a1a;
-  --color-text-light: #666666;
-  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --color-text-light: #5a6672;
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Playfair Display', ui-serif, Georgia, serif;
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   body {
-    @apply bg-bg-light text-text-dark font-sans;
+    @apply bg-secondary text-text-dark font-sans;
   }
+  * {
+    box-sizing: border-box;
+  }
+}
+
+/* ===== REVEAL ANIMATIONS ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== TAG / BADGE ===== */
+.tag-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+  background: var(--color-accent-light);
+  border: 1.5px solid var(--color-accent);
+}
+
+.tag-label::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  flex-shrink: 0;
+}
+
+/* ===== SECTION DEFAULTS ===== */
+.section-padding {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+}
+
+/* ===== MODAL ===== */
+.client-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(10, 25, 18, 0);
+  backdrop-filter: blur(0px);
+  transition: background 0.35s ease, backdrop-filter 0.35s ease;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.client-modal-overlay.open {
+  background: rgba(10, 25, 18, 0.65);
+  backdrop-filter: blur(6px);
+  pointer-events: all;
+  visibility: visible;
+}
+
+.client-modal {
+  background: white;
+  border-radius: 1.5rem;
+  max-width: 860px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  opacity: 0;
+  transform: scale(0.92) translateY(24px);
+  transition: opacity 0.38s cubic-bezier(0.22, 1, 0.36, 1), transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 32px 80px rgba(0,0,0,0.22);
+}
+
+.client-modal-overlay.open .client-modal {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* scrollbar for modal */
+.client-modal::-webkit-scrollbar { width: 5px; }
+.client-modal::-webkit-scrollbar-track { background: transparent; }
+.client-modal::-webkit-scrollbar-thumb { background: var(--color-accent-light); border-radius: 99px; }
+
+/* ===== CLIENT CARD hover effect ===== */
+.client-card-interactive {
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.28s ease;
+  cursor: pointer;
+}
+.client-card-interactive:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 20px 50px rgba(45, 106, 79, 0.18);
 }

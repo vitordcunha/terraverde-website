@@ -1,7 +1,5 @@
 ---
-import Section from './Section.astro';
 import Tag from './Tag.astro';
-import Button from './Button.astro';
 
 const filters = [
   { label: "Todos", value: "all" },
@@ -21,81 +19,93 @@ const projects = [
 ];
 ---
 
-<Section id="portfolio" class="bg-white">
-  <div class="text-center mb-12 max-w-3xl mx-auto">
-    <Tag class="mb-4">PORTFÓLIO</Tag>
-    <h2 class="text-3xl md:text-4xl font-bold text-text-dark mb-6">
-      Projetos que Falam por Si
-    </h2>
-    <p class="text-text-light text-lg">
-      Cada jardim conta uma história. Veja alguns dos nossos projetos realizados em residências, empresas e espaços comerciais em Porto Alegre e região.
-    </p>
-  </div>
+<section id="portfolio" class="bg-white py-20 lg:py-28 reveal">
+  <div class="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
+    <div class="text-center mb-12 max-w-2xl mx-auto">
+      <Tag class="mb-4">PORTFÓLIO</Tag>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-text-dark mb-5 font-serif leading-tight">
+        Projetos que Falam por Si
+      </h2>
+      <p class="text-text-light text-base leading-relaxed">
+        Cada jardim conta uma história. Veja alguns dos nossos projetos realizados em Porto Alegre e região.
+      </p>
+    </div>
 
-  <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-12">
-    {filters.map((filter, index) => (
-      <button 
-        class={`filter-btn px-6 py-2 rounded-full font-medium transition-all duration-300 ${index === 0 ? 'bg-primary text-white' : 'bg-bg-light text-text-light hover:bg-bg-light/80'}`}
-        data-filter={filter.value}
-      >
-        {filter.label}
-      </button>
-    ))}
-  </div>
+    <!-- Filter pills -->
+    <div class="flex flex-wrap justify-center gap-2 md:gap-3 mb-10">
+      {filters.map((filter, index) => (
+        <button
+          class={`filter-btn px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${index === 0 ? 'bg-primary text-white shadow-md shadow-primary/20' : 'bg-bg-section text-text-light hover:bg-primary/10 hover:text-primary'}`}
+          data-filter={filter.value}
+        >
+          {filter.label}
+        </button>
+      ))}
+    </div>
 
-  <div class="flex flex-wrap justify-center gap-6 mb-16" id="portfolio-grid">
-    {projects.map((project) => (
-      <div class="portfolio-item group relative rounded-xl overflow-hidden aspect-[4/3] w-full md:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.5rem)]" data-category={project.category}>
-        <img 
-          src={project.image} 
-          alt={project.title}
-          class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-          loading="lazy"
-        />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-          <span class="text-white/80 text-sm font-medium uppercase tracking-wider mb-2">{project.category}</span>
-          <h3 class="text-white text-xl font-bold">{project.title}</h3>
+    <!-- Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-14" id="portfolio-grid">
+      {projects.map((project) => (
+        <div
+          class="portfolio-item group relative rounded-2xl overflow-hidden aspect-[4/3] shadow-sm cursor-pointer"
+          data-category={project.category}
+        >
+          <img
+            src={project.image}
+            alt={project.title}
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5">
+            <span class="text-white/70 text-xs font-semibold uppercase tracking-widest mb-1">{project.category}</span>
+            <h3 class="text-white text-lg font-bold font-serif">{project.title}</h3>
+          </div>
+          <!-- Always visible bottom strip -->
+          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/50 to-transparent h-1/3 pointer-events-none"></div>
         </div>
-      </div>
-    ))}
-  </div>
+      ))}
+    </div>
 
-  <div class="text-center">
-    <Button href="https://wa.me/message/UFIXHURQVOMGD1" style="primary" target="_blank">QUERO UM PROJETO ASSIM</Button>
+    <div class="text-center">
+      <a
+        href="https://wa.me/message/UFIXHURQVOMGD1"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-full font-semibold hover:bg-primary-dark transition-all duration-300 shadow-lg shadow-primary/25 hover:-translate-y-0.5"
+      >
+        QUERO UM PROJETO ASSIM
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </div>
   </div>
-</Section>
+</section>
 
 <script>
-  // Simple filtering logic
   document.addEventListener('DOMContentLoaded', () => {
     const filterBtns = document.querySelectorAll('.filter-btn');
-    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    const portfolioItems = document.querySelectorAll<HTMLElement>('.portfolio-item');
 
     filterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
-        // Active state
         filterBtns.forEach(b => {
-          b.classList.remove('bg-primary', 'text-white');
-          b.classList.add('bg-bg-light', 'text-text-light');
+          b.classList.remove('bg-primary', 'text-white', 'shadow-md', 'shadow-primary/20');
+          b.classList.add('bg-bg-section', 'text-text-light');
         });
-        btn.classList.add('bg-primary', 'text-white');
-        btn.classList.remove('bg-bg-light', 'text-text-light');
+        btn.classList.add('bg-primary', 'text-white', 'shadow-md', 'shadow-primary/20');
+        btn.classList.remove('bg-bg-section', 'text-text-light');
 
         const filter = btn.getAttribute('data-filter');
-
         portfolioItems.forEach(item => {
           if (filter === 'all' || item.getAttribute('data-category') === filter) {
-            (item as HTMLElement).style.display = 'block';
+            item.style.display = 'block';
             setTimeout(() => {
-              (item as HTMLElement).style.opacity = '1';
-              (item as HTMLElement).style.transform = 'scale(1)';
+              item.style.opacity = '1';
+              item.style.transform = 'scale(1)';
             }, 10);
           } else {
-            (item as HTMLElement).style.opacity = '0';
-            (item as HTMLElement).style.transform = 'scale(0.95)';
-            setTimeout(() => {
-              (item as HTMLElement).style.display = 'none';
-            }, 300);
+            item.style.opacity = '0';
+            item.style.transform = 'scale(0.95)';
+            setTimeout(() => { item.style.display = 'none'; }, 300);
           }
         });
       });

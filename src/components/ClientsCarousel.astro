@@ -1,0 +1,112 @@
+---
+import design from '../../design.json';
+
+const { label, clients } = design.layout.clients_carousel;
+const doubled = [...clients, ...clients];
+---
+
+<div class="clients-section py-10 bg-white border-b border-gray-100 overflow-hidden">
+  <div class="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl mb-6">
+    <p class="text-center text-sm font-medium text-text-light uppercase tracking-widest">
+      {label}
+    </p>
+  </div>
+
+  <div class="carousel-wrapper relative">
+    <div class="fade-left"></div>
+    <div class="fade-right"></div>
+
+    <div class="carousel-track">
+      {doubled.map((client) => (
+        <div class="client-card" title={client.name}>
+          <img
+            src={client.logo}
+            alt={client.name}
+            class="client-logo"
+            onerror={`this.style.display='none'; this.nextElementSibling.style.display='flex';`}
+          />
+          <div class="client-fallback" style="display:none;">
+            {client.initials}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+<style>
+  .carousel-wrapper {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .fade-left,
+  .fade-right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 140px;
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  .fade-left  { left:  0; background: linear-gradient(to right, white, transparent); }
+  .fade-right { right: 0; background: linear-gradient(to left,  white, transparent); }
+
+  .carousel-track {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    width: max-content;
+    animation: scroll-left 35s linear infinite;
+  }
+
+  .carousel-track:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes scroll-left {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .client-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 52px;
+    padding: 0 1rem;
+    filter: grayscale(100%);
+    opacity: 0.55;
+    transition: filter 0.3s, opacity 0.3s;
+    cursor: default;
+    flex-shrink: 0;
+  }
+
+  .client-card:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+  }
+
+  .client-logo {
+    max-height: 40px;
+    max-width: 140px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  .client-fallback {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2d6a4f, #52b788);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+  }
+</style>

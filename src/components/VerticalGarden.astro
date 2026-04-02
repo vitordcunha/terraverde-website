@@ -1,73 +1,77 @@
 ---
 import design from '../../design.json';
-import Section from './Section.astro';
 import Tag from './Tag.astro';
 import Icon from './Icon.astro';
-import Button from './Button.astro';
 
 const data = design.layout.main_service_section;
 ---
 
-<Section id="jardim-vertical" padding="large">
-  <div class="mb-16 md:mb-24 text-center max-w-3xl mx-auto">
-    <Tag class="mb-6">{data.tag}</Tag>
-    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-text-dark">{data.title}</h2>
-    <p class="text-lg text-text-light leading-relaxed">
-      {data.description}
-    </p>
-  </div>
+<section id="jardim-vertical" class="bg-bg-section py-20 lg:py-28 reveal">
+  <div class="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
+    <!-- Section intro (centered) -->
+    <div class="mb-16 md:mb-20 text-center max-w-3xl mx-auto">
+      <Tag class="mb-5">{data.tag}</Tag>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-5 text-text-dark font-serif leading-tight">{data.title}</h2>
+      <p class="text-base text-text-light leading-relaxed">{data.description}</p>
+    </div>
 
-  <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 mb-24 items-center">
-    <!-- Image/Video Area Placeholder for the steps or generic -->
-    <div class="relative">
-      <div class="bg-gray-100 rounded-3xl aspect-[4/3] w-full lg:w-11/12 object-cover shadow-xl overflow-hidden relative">
-          <!-- Placeholder image since we lack the specific one in phase 1. Usually, here is an image representing the technique -->
-          <div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/20 flex flex-col justify-center items-center text-center p-8">
-             <Icon name="check" class="w-16 h-16 text-primary opacity-50 mb-4" />
-             <h3 class="text-2xl font-bold text-primary mb-2">Técnica Exclusiva</h3>
-             <p class="text-text-dark/70">Manta Enraizadora</p>
-          </div>
-      </div>
-      
-      <!-- Steps overlay -->
-      <div class="-mt-12 relative lg:absolute lg:top-1/2 lg:-translate-y-1/2 lg:-right-4 bg-white p-6 md:p-8 rounded-2xl shadow-xl w-full lg:w-80 lg:z-10">
-        <h3 class="text-xl font-bold mb-6 text-text-dark">{data.technique_explanation.title}</h3>
-        <div class="flex flex-col gap-5">
-          {data.technique_explanation.steps.map((step) => (
-            <div class="flex gap-4">
-              <div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-sm">
-                {step.step}
+    <!-- Main grid -->
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-20">
+      <!-- Image -->
+      <div class="relative">
+        <div class="rounded-t-[70px] rounded-br-[70px] rounded-bl-[16px] overflow-hidden aspect-[4/3] shadow-2xl">
+          <img
+            src="https://images.unsplash.com/photo-1598460655827-0c2d3a77d1cf?q=80&w=1000&auto=format&fit=crop"
+            alt="Jardim vertical natural"
+            class="w-full h-full object-cover hover:scale-[1.04] transition-transform duration-700"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent pointer-events-none"></div>
+        </div>
+
+        <!-- Floating technique card -->
+        <div class="absolute -bottom-8 -right-4 md:-right-10 bg-white rounded-2xl shadow-xl p-5 max-w-[220px] border border-gray-50 hidden sm:block">
+          <h4 class="text-sm font-bold text-text-dark mb-3">{data.technique_explanation.title}</h4>
+          <div class="space-y-2.5">
+            {data.technique_explanation.steps.map((step) => (
+              <div class="flex gap-2.5 items-start">
+                <div class="flex-shrink-0 w-5 h-5 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-[9px] mt-0.5">
+                  {step.step}
+                </div>
+                <p class="text-[11px] text-text-light leading-snug">{step.text}</p>
               </div>
-              <p class="text-sm font-medium text-text-dark/80 pt-1 leading-snug">
-                {step.text}
-              </p>
+            ))}
+          </div>
+        </div>
+
+        <!-- Decorative blob -->
+        <div class="absolute -z-10 -bottom-10 -left-10 w-64 h-64 bg-accent/15 rounded-full blur-3xl"></div>
+      </div>
+
+      <!-- Benefits grid -->
+      <div class="flex flex-col justify-center">
+        <div class="grid sm:grid-cols-2 gap-6 lg:gap-7 mb-10">
+          {data.benefits.map((benefit) => (
+            <div class="group bg-white rounded-2xl p-5 border border-gray-100 hover:border-primary/20 hover:shadow-lg transition-all duration-300">
+              <div class="w-11 h-11 rounded-xl bg-accent-light flex items-center justify-center mb-4 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+                <Icon name={benefit.icon} class="w-5 h-5 text-primary group-hover:text-white transition-colors" />
+              </div>
+              <h4 class="font-bold text-text-dark mb-1.5 text-sm group-hover:text-primary transition-colors">{benefit.title}</h4>
+              <p class="text-text-light text-xs leading-relaxed">{benefit.description}</p>
             </div>
           ))}
         </div>
-      </div>
-    </div>
 
-    <!-- Benefits -->
-    <div class="flex flex-col justify-center">
-      <div class="grid sm:grid-cols-2 gap-8 lg:gap-10">
-        {data.benefits.map((benefit) => (
-          <div class="group">
-            <div class="mb-4 w-12 h-12 rounded-xl bg-accent/10 text-primary flex items-center justify-center group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm">
-              <Icon name={benefit.icon} class="w-6 h-6" />
-            </div>
-            <h4 class="text-xl font-bold mb-2 text-text-dark group-hover:text-primary transition-colors">{benefit.title}</h4>
-            <p class="text-text-light text-sm leading-relaxed">
-              {benefit.description}
-            </p>
-          </div>
-        ))}
-      </div>
-
-      <div class="mt-12 pt-10 border-t border-gray-100">
-        <Button href={data.cta.link} style="solid-green-large" class="w-full sm:w-auto">
+        <a
+          href={data.cta.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-primary text-white px-7 py-4 rounded-full font-semibold text-sm hover:bg-primary-dark transition-all duration-300 shadow-lg shadow-primary/25 hover:-translate-y-0.5 self-start"
+        >
           {data.cta.text}
-        </Button>
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
       </div>
     </div>
   </div>
-</Section>
+</section>

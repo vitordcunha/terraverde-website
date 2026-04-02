@@ -1,0 +1,420 @@
+---
+import Tag from './Tag.astro';
+
+const clients = [
+  {
+    id: "restaurante-verdi",
+    name: "Restaurante Verdi",
+    type: "Gastronomia",
+    initials: "RV",
+    color: "#2d6a4f",
+    year: "2022",
+    location: "Porto Alegre/RS",
+    description: "Transformamos o espaço do Restaurante Verdi com um exuberante jardim vertical de 18m², que se tornou o ponto mais fotografado e compartilhado pelos clientes nas redes sociais. O projeto combina espécies de baixa manutenção com alto impacto visual.",
+    services: ["Jardim Vertical Natural", "Manutenção Mensal"],
+    images: [
+      "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=900&auto=format&fit=crop"
+    ],
+    testimonial: "O jardim vertical do Verdi virou nosso cartão de visitas. Todo mundo comenta e pede indicação da Terra Verde!",
+    author: "Chef Roberto Alves"
+  },
+  {
+    id: "construtora-habitat",
+    name: "Construtora Habitat",
+    type: "Construção Civil",
+    initials: "CH",
+    color: "#40916c",
+    year: "2023",
+    location: "Porto Alegre/RS",
+    description: "Parceria estratégica com a Habitat para fornecimento de jardins verticais em 3 empreendimentos residenciais de alto padrão. Cada projeto foi personalizado de acordo com a arquitetura e o público de cada edifício.",
+    services: ["Consultoria e Projetos", "Execução de Jardins", "Jardim Vertical Natural"],
+    images: [
+      "https://images.unsplash.com/photo-1486325212027-8081e485255e?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=900&auto=format&fit=crop"
+    ],
+    testimonial: "A Terra Verde virou nossa parceira oficial de paisagismo. Qualidade e capricho em cada detalhe.",
+    author: "Dir. Comercial, Construtora Habitat"
+  },
+  {
+    id: "clinica-equilibrio",
+    name: "Clínica Equilíbrio",
+    type: "Saúde & Bem-estar",
+    initials: "CE",
+    color: "#52b788",
+    year: "2023",
+    location: "Porto Alegre/RS",
+    description: "A clínica buscava criar um ambiente mais humanizado e acolhedor para seus pacientes. Desenvolvemos um projeto de paisagismo interno com jardim vertical na recepção, vasos estratégicos nas salas de atendimento e planta para o pátio externo.",
+    services: ["Plantas para Interior", "Jardim Vertical Natural", "Manutenção de Jardins"],
+    images: [
+      "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=900&auto=format&fit=crop"
+    ],
+    testimonial: "Os pacientes adoram o ambiente verdejante. Sentimos que o verde realmente acalma e melhora a experiência na clínica.",
+    author: "Dra. Fernanda Luz"
+  },
+  {
+    id: "hotel-veredas",
+    name: "Hotel Veredas",
+    type: "Hotelaria",
+    initials: "HV",
+    color: "#1b4332",
+    year: "2024",
+    location: "Gramado/RS",
+    description: "Projeto de paisagismo completo para o novo Hotel Veredas em Gramado, incluindo jardim vertical de 30m² no lobby, varandas ornamentadas e jardim externo com espécies nativas da Serra Gaúcha. Um dos maiores projetos da Terra Verde.",
+    services: ["Consultoria e Projetos", "Jardim Vertical Natural", "Execução de Jardins", "Manutenção de Jardins"],
+    images: [
+      "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=900&auto=format&fit=crop"
+    ],
+    testimonial: "O hotel ganhou prêmio de design sustentável graças ao trabalho da Carmen e da sua equipe. Incrível!",
+    author: "Gustavo Menezes, Gerente Geral"
+  },
+  {
+    id: "oab-porto-alegre",
+    name: "OAB Porto Alegre",
+    type: "Jurídico / Corporativo",
+    initials: "OA",
+    color: "#74c69d",
+    year: "2023",
+    location: "Porto Alegre/RS",
+    description: "Revitalização do ambiente interno da sede da OAB Porto Alegre com projeto de paisagismo corporativo. Jardim vertical de destaque na entrada e selva urbana distribuída pelos corredores e salas de reunião.",
+    services: ["Jardim Vertical Natural", "Plantas para Interior"],
+    images: [
+      "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=900&auto=format&fit=crop"
+    ],
+    testimonial: "O ambiente ficou muito mais agradável para trabalhar. Nossa equipe adorou!",
+    author: "Presidência OAB-RS"
+  },
+  {
+    id: "espaco-bem-viver",
+    name: "Espaço Bem Viver",
+    type: "Academia & Wellness",
+    initials: "BV",
+    color: "#b7e4c7",
+    year: "2024",
+    location: "Porto Alegre/RS",
+    description: "Criamos uma experiência imersiva de natureza na academia Bem Viver. Com jardins verticais nas paredes das salas de yoga e pilates, o espaço ganhou identidade e transmite exatamente o bem-estar que a marca promete.",
+    services: ["Jardim Vertical Natural", "Consultoria e Projetos", "Manutenção de Jardins"],
+    images: [
+      "https://images.unsplash.com/photo-1588286840104-8957b019727f?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=900&auto=format&fit=crop"
+    ],
+    testimonial: "Nossos alunos dizem que se sentem ainda mais conectados consigo mesmos com o verde ao redor. Perfeito!",
+    author: "Ana Cristina, Fundadora"
+  }
+];
+---
+
+<section id="clientes" class="bg-bg-section py-20 lg:py-28 reveal">
+  <div class="container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl">
+    <!-- Section header -->
+    <div class="text-center mb-14 max-w-2xl mx-auto">
+      <Tag class="mb-4">CLIENTES</Tag>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-text-dark mb-5 leading-tight font-serif">
+        Quem Já Transformou Seu Espaço
+      </h2>
+      <p class="text-text-light text-base leading-relaxed">
+        Clique em qualquer cliente para conhecer o projeto, as fotos e o depoimento. São histórias reais de transformação.
+      </p>
+    </div>
+
+    <!-- Client cards grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {clients.map((client) => (
+        <button
+          class="client-card-interactive group relative rounded-2xl overflow-hidden bg-white shadow-sm border border-gray-100 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+          data-client-id={client.id}
+          aria-label={`Ver projeto: ${client.name}`}
+          id={`card-${client.id}`}
+        >
+          <!-- Top image area -->
+          <div class="relative h-44 overflow-hidden">
+            <img
+              src={client.images[0]}
+              alt={client.name}
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            <!-- Type badge -->
+            <span class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-primary text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wide">
+              {client.type}
+            </span>
+            <!-- Year badge -->
+            <span class="absolute top-3 right-3 bg-black/30 backdrop-blur-sm text-white text-[10px] font-medium px-2 py-1 rounded-full">
+              {client.year}
+            </span>
+          </div>
+
+          <!-- Content -->
+          <div class="p-5">
+            <div class="flex items-center gap-3 mb-3">
+              <!-- Initials avatar -->
+              <div
+                class="w-10 h-10 rounded-xl flex items-center justify-center text-white text-xs font-bold flex-shrink-0"
+                style={`background: ${client.color};`}
+              >
+                {client.initials}
+              </div>
+              <div>
+                <h3 class="font-bold text-text-dark text-sm leading-snug group-hover:text-primary transition-colors">
+                  {client.name}
+                </h3>
+                <p class="text-xs text-text-light">{client.location}</p>
+              </div>
+            </div>
+
+            <p class="text-text-light text-xs leading-relaxed line-clamp-2 mb-4">
+              {client.description}
+            </p>
+
+            <!-- Services tags -->
+            <div class="flex flex-wrap gap-1.5">
+              {client.services.slice(0, 2).map((s) => (
+                <span class="text-[10px] font-medium bg-accent-light text-primary px-2.5 py-1 rounded-full">
+                  {s}
+                </span>
+              ))}
+              {client.services.length > 2 && (
+                <span class="text-[10px] font-medium bg-gray-100 text-text-light px-2.5 py-1 rounded-full">
+                  +{client.services.length - 2}
+                </span>
+              )}
+            </div>
+          </div>
+
+          <!-- Hover arrow -->
+          <div class="absolute bottom-5 right-5 w-8 h-8 rounded-full bg-primary/0 group-hover:bg-primary flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </div>
+        </button>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Modal overlay -->
+<div class="client-modal-overlay" id="client-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-client-name">
+  <div class="client-modal" id="client-modal">
+    <!-- Close button -->
+    <button
+      id="modal-close-btn"
+      class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-black/10 hover:bg-black/20 flex items-center justify-center backdrop-blur-sm transition-colors"
+      aria-label="Fechar modal"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+
+    <!-- Hero image -->
+    <div class="relative h-56 md:h-72 overflow-hidden rounded-t-2xl">
+      <img id="modal-hero-img" src="" alt="" class="w-full h-full object-cover" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+
+      <!-- Client name overlay -->
+      <div class="absolute bottom-0 left-0 right-0 p-6">
+        <span id="modal-type-badge" class="inline-block bg-white/20 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full mb-2 uppercase tracking-wide"></span>
+        <h2 id="modal-client-name" class="text-white text-2xl md:text-3xl font-bold font-serif"></h2>
+        <p id="modal-location" class="text-white/70 text-sm mt-1 flex items-center gap-1.5">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 15 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+          <span></span>
+        </p>
+      </div>
+    </div>
+
+    <!-- Modal body -->
+    <div class="p-6 md:p-8 grid md:grid-cols-2 gap-8">
+      <!-- Left: description + services -->
+      <div>
+        <h3 class="text-sm font-semibold text-primary uppercase tracking-wider mb-3">Sobre o Projeto</h3>
+        <p id="modal-description" class="text-text-light text-sm leading-relaxed mb-6"></p>
+
+        <h3 class="text-sm font-semibold text-primary uppercase tracking-wider mb-3">Serviços Realizados</h3>
+        <div id="modal-services" class="flex flex-wrap gap-2"></div>
+      </div>
+
+      <!-- Right: second image + testimonial -->
+      <div class="flex flex-col gap-5">
+        <div class="rounded-xl overflow-hidden h-36 md:h-44">
+          <img id="modal-secondary-img" src="" alt="" class="w-full h-full object-cover" />
+        </div>
+
+        <blockquote class="bg-bg-section rounded-xl p-5 border-l-4 border-primary">
+          <p id="modal-testimonial" class="text-sm text-text-dark italic mb-3 leading-relaxed"></p>
+          <footer id="modal-author" class="text-xs font-semibold text-primary"></footer>
+        </blockquote>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="px-6 md:px-8 pb-6 md:pb-8">
+      <a
+        href="https://wa.me/message/UFIXHURQVOMGD1"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center justify-center gap-2 bg-primary text-white w-full py-3.5 rounded-full font-semibold text-sm hover:bg-primary-dark transition-all duration-300 shadow-md shadow-primary/20"
+      >
+        QUERO UM PROJETO ASSIM
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Client data for the modal
+  const clientsData: Record<string, {
+    name: string;
+    type: string;
+    location: string;
+    description: string;
+    services: string[];
+    images: string[];
+    testimonial: string;
+    author: string;
+  }> = {
+    "restaurante-verdi": {
+      name: "Restaurante Verdi",
+      type: "Gastronomia",
+      location: "Porto Alegre/RS",
+      description: "Transformamos o espaço do Restaurante Verdi com um exuberante jardim vertical de 18m², que se tornou o ponto mais fotografado e compartilhado pelos clientes nas redes sociais. O projeto combina espécies de baixa manutenção com alto impacto visual.",
+      services: ["Jardim Vertical Natural", "Manutenção Mensal"],
+      images: [
+        "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=900&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=900&auto=format&fit=crop"
+      ],
+      testimonial: "O jardim vertical do Verdi virou nosso cartão de visitas. Todo mundo comenta e pede indicação da Terra Verde!",
+      author: "Chef Roberto Alves"
+    },
+    "construtora-habitat": {
+      name: "Construtora Habitat",
+      type: "Construção Civil",
+      location: "Porto Alegre/RS",
+      description: "Parceria estratégica com a Habitat para fornecimento de jardins verticais em 3 empreendimentos residenciais de alto padrão. Cada projeto foi personalizado de acordo com a arquitetura e o público de cada edifício.",
+      services: ["Consultoria e Projetos", "Execução de Jardins", "Jardim Vertical Natural"],
+      images: [
+        "https://images.unsplash.com/photo-1486325212027-8081e485255e?q=80&w=900&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=900&auto=format&fit=crop"
+      ],
+      testimonial: "A Terra Verde virou nossa parceira oficial de paisagismo. Qualidade e capricho em cada detalhe.",
+      author: "Dir. Comercial, Construtora Habitat"
+    },
+    "clinica-equilibrio": {
+      name: "Clínica Equilíbrio",
+      type: "Saúde & Bem-estar",
+      location: "Porto Alegre/RS",
+      description: "A clínica buscava criar um ambiente mais humanizado e acolhedor para seus pacientes. Desenvolvemos um projeto de paisagismo interno com jardim vertical na recepção, vasos estratégicos nas salas de atendimento e planta para o pátio externo.",
+      services: ["Plantas para Interior", "Jardim Vertical Natural", "Manutenção de Jardins"],
+      images: [
+        "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=900&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=900&auto=format&fit=crop"
+      ],
+      testimonial: "Os pacientes adoram o ambiente verdejante. Sentimos que o verde realmente acalma e melhora a experiência na clínica.",
+      author: "Dra. Fernanda Luz"
+    },
+    "hotel-veredas": {
+      name: "Hotel Veredas",
+      type: "Hotelaria",
+      location: "Gramado/RS",
+      description: "Projeto de paisagismo completo para o novo Hotel Veredas em Gramado, incluindo jardim vertical de 30m² no lobby, varandas ornamentadas e jardim externo com espécies nativas da Serra Gaúcha. Um dos maiores projetos da Terra Verde.",
+      services: ["Consultoria e Projetos", "Jardim Vertical Natural", "Execução de Jardins", "Manutenção de Jardins"],
+      images: [
+        "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=900&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=900&auto=format&fit=crop"
+      ],
+      testimonial: "O hotel ganhou prêmio de design sustentável graças ao trabalho da Carmen e da sua equipe. Incrível!",
+      author: "Gustavo Menezes, Gerente Geral"
+    },
+    "oab-porto-alegre": {
+      name: "OAB Porto Alegre",
+      type: "Jurídico / Corporativo",
+      location: "Porto Alegre/RS",
+      description: "Revitalização do ambiente interno da sede da OAB Porto Alegre com projeto de paisagismo corporativo. Jardim vertical de destaque na entrada e selva urbana distribuída pelos corredores e salas de reunião.",
+      services: ["Jardim Vertical Natural", "Plantas para Interior"],
+      images: [
+        "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=900&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=900&auto=format&fit=crop"
+      ],
+      testimonial: "O ambiente ficou muito mais agradável para trabalhar. Nossa equipe adorou!",
+      author: "Presidência OAB-RS"
+    },
+    "espaco-bem-viver": {
+      name: "Espaço Bem Viver",
+      type: "Academia & Wellness",
+      location: "Porto Alegre/RS",
+      description: "Criamos uma experiência imersiva de natureza na academia Bem Viver. Com jardins verticais nas paredes das salas de yoga e pilates, o espaço ganhou identidade e transmite exatamente o bem-estar que a marca promete.",
+      services: ["Jardim Vertical Natural", "Consultoria e Projetos", "Manutenção de Jardins"],
+      images: [
+        "https://images.unsplash.com/photo-1588286840104-8957b019727f?q=80&w=900&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=900&auto=format&fit=crop"
+      ],
+      testimonial: "Nossos alunos dizem que se sentem ainda mais conectados consigo mesmos com o verde ao redor. Perfeito!",
+      author: "Ana Cristina, Fundadora"
+    }
+  };
+
+  const overlay = document.getElementById('client-modal-overlay')!;
+  const modal = document.getElementById('client-modal')!;
+  const closeBtn = document.getElementById('modal-close-btn')!;
+
+  // Elements to populate
+  const modalHeroImg = document.getElementById('modal-hero-img') as HTMLImageElement;
+  const modalSecondaryImg = document.getElementById('modal-secondary-img') as HTMLImageElement;
+  const modalClientName = document.getElementById('modal-client-name')!;
+  const modalTypeBadge = document.getElementById('modal-type-badge')!;
+  const modalLocationSpan = document.querySelector('#modal-location span')!;
+  const modalDescription = document.getElementById('modal-description')!;
+  const modalServices = document.getElementById('modal-services')!;
+  const modalTestimonial = document.getElementById('modal-testimonial')!;
+  const modalAuthor = document.getElementById('modal-author')!;
+
+  function openModal(clientId: string) {
+    const client = clientsData[clientId];
+    if (!client) return;
+
+    // Populate
+    modalHeroImg.src = client.images[0];
+    modalHeroImg.alt = client.name;
+    modalSecondaryImg.src = client.images[1] || client.images[0];
+    modalSecondaryImg.alt = client.name;
+    modalClientName.textContent = client.name;
+    modalTypeBadge.textContent = client.type;
+    modalLocationSpan.textContent = client.location;
+    modalDescription.textContent = client.description;
+    modalTestimonial.textContent = `"${client.testimonial}"`;
+    modalAuthor.textContent = `— ${client.author}`;
+
+    // Services
+    modalServices.innerHTML = client.services.map(s =>
+      `<span class="text-xs font-medium bg-accent-light text-primary px-3 py-1.5 rounded-full">${s}</span>`
+    ).join('');
+
+    // Open with transition
+    modal.scrollTop = 0;
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // Card click handlers
+  document.querySelectorAll('[data-client-id]').forEach(card => {
+    card.addEventListener('click', () => {
+      const id = card.getAttribute('data-client-id')!;
+      openModal(id);
+    });
+  });
+
+  // Close handlers
+  closeBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeModal();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
+  });
+</script>
